@@ -1,0 +1,299 @@
+@charset "UTF-8";
+
+html {
+    font-size: 100%;
+}
+
+body {
+    font-size: 0.9rem;
+    line-height: 1.7;
+    max-width: 1440px;
+    /* footerを画面下に配置するための処理 */
+    position: relative;
+}
+
+a {
+    text-decoration: none;
+}
+
+li {
+    list-style: none;
+}
+
+img {
+    max-width: 100%;
+}
+
+.site-title {
+    width: 220px;
+    height: auto;
+    padding: 0 16px;
+    text-align: center;
+}
+
+
+.item-title {
+    font-size: 2.5rem;
+    display: inline-block;
+    border-bottom: solid 7px #e03131;
+    margin-bottom: 70px;
+    margin-top: 0;
+}
+
+
+
+.wrapper {
+    width: 100%;
+    max-width: 1360px;
+    margin: 0 auto;
+    text-align: center;
+    padding: 0 40px;
+}
+
+.main {
+    padding: 0 40px 240px 40px;
+}
+
+/*------------------------------------*\
+    #Header
+\*------------------------------------*/
+#header {
+    position: fixed;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #fff;
+    margin: 0 2%;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 90px;
+    z-index: 999;
+}
+
+/*
+ハンバーガーメニュー
+メニューが閉じている時は、「left: -300px;」で画面左に隠し、
+「opacity: 0;」で非表示にしている
+*/
+#navi {
+    position: fixed;
+    top: 0;
+    left: -300px;
+    width: 300px;
+    color: #fff;
+    padding: 36px 50px;
+    transition: all 0.5s;
+    z-index: 20;
+    opacity: 0;
+  }
+  #navi a {
+    color: #fff;
+  }
+  #navi li {
+    margin-bottom: 14px;
+  }
+  /*
+  ハンバーガーメニュー
+  メニューが開いている時は、「left: 0;」「opacity: 1;」で
+  画面左に表示する
+  */
+  .open #navi {
+    left: 0;
+    opacity: 1;
+  }
+  .toggle_btn {
+    width: 30px;
+    height: 30px;
+    position: relative;
+    transition: all 0.5s;
+    cursor: pointer;
+    z-index: 20;
+  }
+  /*
+  ハンバーガーメニューの線の設定（メニューが閉じている時）
+  */
+  .toggle_btn span {
+    display: block;
+    position: absolute;
+    width: 30px;
+    height: 2px;
+    background-color: #333;
+    border-radius: 4px;
+    transition: all 0.5s;
+  }
+  /*
+  1本目の線の位置を設定
+  */
+  .toggle_btn span:nth-child(1) {
+    top: 10px;
+  }
+  /*
+  2本目の線の位置を設定
+  */
+  .toggle_btn span:nth-child(2) {
+    bottom: 10px;
+  }
+  /*
+  ハンバーガーメニューの線の設定（メニューが開いている時）
+  線の色を白に変更
+  */
+  .open .toggle_btn span {
+    background-color: #fff;
+  }
+  /*
+  1本目の線を-45度回転
+  */
+  .open .toggle_btn span:nth-child(1) {
+    -webkit-transform: translateY(4px) rotate(-45deg);
+    transform: translateY(4px) rotate(-45deg);
+  }
+  /*
+  2本目の線を45度回転
+  */
+  .open .toggle_btn span:nth-child(2) {
+    -webkit-transform: translateY(-4px) rotate(45deg);
+    transform: translateY(-4px) rotate(45deg);
+  }
+  #mask {
+    display: none;
+    transition: all 0.5s;
+  }
+  /*
+  メニューを開いている時は、全体を黒背景にする
+  */
+  .open #mask {
+    display: block;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: #000;
+    opacity: .8;
+    z-index: 10;
+    cursor: pointer;
+  }
+  
+
+
+/*------------------------------------*\
+    #Main
+\*------------------------------------*/
+#products {
+    width: 100%;
+    position: relative;
+    top: 100px;
+    left: 0;
+}
+
+#products .small-title {
+    text-align: left;
+    margin: 20px 0 20px 5px;
+}
+
+#products ul {
+    width: 100%;
+    height: auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+#products li {
+    margin: 10px 10px 30px 10px;
+    width: calc(100% / 4 - 30px);
+}
+
+
+#products img {
+    width: 100%;
+    object-fit: cover;
+}
+
+#products a:hover {
+    opacity: 0.8;
+    text-decoration: none;
+}
+
+#products a {
+    text-align: left;
+    color: #333;
+    font-size: 12px;
+}
+
+#products .viewmore {
+    width: 100%;
+    display: block;
+    text-align: center;
+    /* margin: 0 0 100px 0; */
+    font-size: 18px;
+}
+
+#products .viewmore:hover {
+    opacity: 0.8;
+    text-decoration: none;
+}
+
+#products .number {
+    font-size: 15px;
+    color: #333;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: nowrap;
+    /* margin: 0 0 250px 0; */
+}
+
+#products .number li {
+    width: auto;
+    margin-right: 20px;
+}
+
+#products .number li a {
+    font-size: 15px;
+}
+
+/*------------------------------------*\
+    #Footer
+\*------------------------------------*/
+#footer {
+    margin-bottom: 10px;
+    bottom: 0;
+}
+
+#footer .footer-inner {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #fff;
+    width: 100%;
+    height: auto;
+    z-index: 999;
+}
+
+#footer .footer-sns ul {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: nowrap;
+}
+
+#footer .footer-sns li {
+    margin: 0 10px;
+}
+
+#footer .footer-sns a {
+    color: #333;
+    font-size: 15åpx;
+}
+
+#footer .footer-sns a:hover {
+    opacity: 0.8;
+    text-decoration: none;
+}
+
+#footer .footer-logo {
+    font-size: 8px;
+}
